@@ -17,6 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 /test/*
+/db/schema.rb
 
 /node_modules
 /yarn-error.log
