@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update]
 
-  def index
-    @posts = current_user.tweets.all
-  end
-
 
   def create
     @post = current_user.tweets.new(post_params)
