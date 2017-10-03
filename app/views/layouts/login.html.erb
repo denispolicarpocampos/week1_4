@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week14</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <br />
+    <div class="row login-form">
+      <div class="col s12 m12 l6 xl6 offset-l3 offset-xl3">
+        <div class="card hoverable">
+          <div class="card-content">
+            <%= yield %>
+          </div>
+          <div class="card-action">
+            <div class="devise-links">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
