@@ -12,5 +12,9 @@ module Week14
     config.load_defaults 5.1
 
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{rb,yml}")]
+
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helper = false
   end
 end
