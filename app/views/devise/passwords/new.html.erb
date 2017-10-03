@@ -1,0 +1,20 @@
+<span class="card-title center">Forgot your password?</span>
+<div class="divider"></div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <% if resource.errors.present? || alert %>
+    <div class="form-errors red lighten-1">
+      <%= devise_error_messages! %>
+      <%= alert  %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button "Send me reset password instructions", type: "submit", class: "btn waves-effect" %>
+  </div>
+<% end %>
