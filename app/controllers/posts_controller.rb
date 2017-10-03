@@ -13,11 +13,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    #before_action :set_post
   end
 
   def update
-    #before_action :set_post
     if @post.update(post_params)
       redirect_to @post
     else
