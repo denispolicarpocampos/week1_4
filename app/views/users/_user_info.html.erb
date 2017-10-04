@@ -1,0 +1,39 @@
+<div class="row user-top-bar">
+  <div class="col xl2 l2 m3 s12 xs12 center info-text">1 <strong>Tweet</strong></div>
+  <div class="col xl2 l2 m3 s12 xs12 center info-text">14 <strong>Followers</strong></div>
+  <div class="col xl2 l2 m3 s12 xs12 center info-text">16 <strong>Following</strong></div>
+  <% if user != current_user %>
+    <div class="col xl2 l2 m3 s12 xs12 offset-xl4 offset-l4 center">
+      <% if current_user.connections.where(followee: user).any? %>
+        <a class="waves-effect waves-light btn white follow-button"><i class="material-icons right">arrow_downward</i>Unfollow</a>
+      <% else %>
+        <a class="waves-effect waves-light btn white follow-button"><i class="material-icons right">arrow_upward</i>Follow</a>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col xl3 l3 m12 s12 xs12 left-nav">
+    <div class="content">
+      <div class="row">
+        <div class="col xl10 l10 m4 s4 xs6 offset-xl1 offset-l1 offset-m4 offset-s4 offset-xs3">
+          <%= image_tag "/without-photo.png", width: '100%' %>
+        </div>
+      </div>
+      <div class="row">
+        <span class="name">Esperar colocar o nome</span><br />
+        <span class="username">@esperar_colocar_username</span><br />
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col xl3 l3 m12 s12 xs12"></div>
+
+  <div class="col xl9 l9 m12 s12 xs12">
+    <%= alert %>
+    <%= notice %>
+    <%= yield %>
+  </div>
+</div>

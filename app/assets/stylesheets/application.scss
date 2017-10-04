@@ -8,3 +8,18 @@
 
 @import "materialize";
 @import "devise";
+@import "user";
+
+.top-bar {
+  background-color: #f5f5f5;
+
+  a {
+    color: black;
+    font-size: 2em;
+  }
+
+  div {
+    padding-right: 1em;
+    color: black;
+  }
+}
