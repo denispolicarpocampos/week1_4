@@ -1,0 +1,24 @@
+<%= render layout: "users/user_info", locals: { user: current_user } do %>
+  <h3>Searching</h3>
+  
+  <br />
+
+  <% @results.each do |result| %>
+    <div class="row">
+      <div class="col xl12 l12 m12 s12 xs12">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title"><%= result.searchable_type.constantize.model_name.human %></h3>
+            <p>
+              <% if result.searchable_type == "User" %>
+                <%= link_to result.content, user_path(result.searchable_id) %>
+              <% else %>
+                <%= result.content %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
