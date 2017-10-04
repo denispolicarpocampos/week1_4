@@ -6,6 +6,6 @@ class Hashtag < ApplicationRecord
   belongs_to :tweet
 
   def card_content
-    "##{self.content}"
+    %W{ ##{self.content} }
   end
 end
