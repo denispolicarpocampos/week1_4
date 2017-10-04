@@ -1,7 +1,5 @@
 class FollowsController < ApplicationController
 
-  before_action :set_follow, only: [:delete]
-
   def create
     @addUser = current_user.connections.new(followee_id: params[:user_id])
     @addUser.save
