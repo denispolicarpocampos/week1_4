@@ -9,14 +9,13 @@
         <div class="card">
           <div class="card-content">
             <h3 class="card-title"><%= result.searchable_type.constantize.model_name.human %></h3>
-            <p>
-              <% if result.searchable_type == "User" %>
-                <%= link_to result.content, user_path(result.searchable_id) %>
-              <% else %>
-                <%= result.content %>
-              <% end %>
-            </p>
+            <p><%= result.searchable_type.constantize.find(result.searchable_id).card_content %></p>
           </div>
+          <% if result.searchable_type == "User" %>
+            <div class="card-action">
+              <%= link_to "User profile", user_path(result.searchable_id) %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
