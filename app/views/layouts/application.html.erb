@@ -13,7 +13,7 @@
       <div class="nav-wrapper top-bar row">
         <a href="#" class="brand-logo center">Logo</a>
         <div class="col xl3 l3 hide-on-med-and-down right">
-          <%= form_tag url: "" do %>
+          <%= form_tag searches_path, method: :get do %>
             <%= text_field_tag :search_text, "", placeholder: "Search" %>
           <% end %>
       </div>
