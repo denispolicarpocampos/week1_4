@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  include PgSearch
+  multisearchable against: [:email], using: [:tsearch, :trigram]
 	
   has_many :likes_given, :class_name => 'Like'
   has_many :tweets
