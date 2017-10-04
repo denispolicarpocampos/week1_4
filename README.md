@@ -9,6 +9,7 @@
 ```
   * Docker
   * Docker Compose
+  * Postgresql
 ```
 
 ## How to contribute to the project
@@ -18,22 +19,32 @@
 https://github.com/llsantana/week1_4
 ```
 
-### 1. Add the remote repository source at your local repositoy
+### 2. Add the remote repository source at your local repositoy
 ```
 $ git remote add upstream git@github.com:llsantana/week1_4.git
 ```
 
-### 2. Sync your repository with the original repository
+### 3. Sync your repository with the original repository
 ```
 $ git fetch upstream
 ```
 
-### 3. Update your local repository
+### 4. Update your local repository
 ```
 $ git checkout master
 $ git merge upstream/master
 ```
 
-### 4. Work on it and send changes to your fork
+### 5. You must create a PostgreSQL extension
+We are using PostgreSQL and gem PgSearch to improve our database workload.
+This gem uses two important Postgres extensions to enable features to improve research, and these are `pg_trgm` and `fuzzystrmatch`
 
-### 5. Do a pull request at your fork on GitHub
+To install these extensions, enter in your database and run:
+```
+CREATE EXTENSION pg_trgm;
+CREATE EXTENSION fuzzystrmatch;
+```
+
+### 6. Work on it and send changes to your fork
+
+### 7. Do a pull request at your fork on GitHub
