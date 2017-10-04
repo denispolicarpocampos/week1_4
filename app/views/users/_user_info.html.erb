@@ -4,10 +4,14 @@
   <div class="col xl2 l2 m3 s12 xs12 center info-text">16 <strong>Following</strong></div>
   <% if user != current_user %>
     <div class="col xl2 l2 m3 s12 xs12 offset-xl4 offset-l4 center">
-      <% if current_user.connections.where(followee: user).any? %>
-        <a class="waves-effect waves-light btn white follow-button"><i class="material-icons right">arrow_downward</i>Unfollow</a>
+      <% if @connection.any? %>
+        <%= link_to follow_path(@connection.first), class: "waves-effect waves-light btn white follow-button", method: :delete do %>
+          <i class="material-icons right">arrow_downward</i>Unfollow
+        <% end %>
       <% else %>
-        <a class="waves-effect waves-light btn white follow-button"><i class="material-icons right">arrow_upward</i>Follow</a>
+        <%= link_to user_follows_path(user), class:"waves-effect waves-light btn white follow-button", data: { method: :post } do %>
+          <i class="material-icons right">arrow_upward</i>Follow
+        <% end %>
       <% end %>
     </div>
   <% end %>
