@@ -1,17 +1,39 @@
 # Week 01 - Team 04 - CHALLENGE
+====================================================
 
-## How to run it?
+![ruby](https://img.shields.io/badge/Ruby-2.4.2-red.svg)
+![rails](https://img.shields.io/badge/Rails-5.1.4-red.svg)
+![rails](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
 
-These are baby steps to stark running this application after clone it on your local dir
+# Require
+```
+  * Docker
+  * Docker Compose
+```
 
-1. Build containers
-`docker-compose build`
+## How to contribute to the project
 
-2. Start containers
-`docker-compose up -d`
+### 1. Do a fork at original repository
+```
+https://github.com/llsantana/week1_4
+```
 
-3. Create database on database container
-`docker-compose run website bundle exec rails db:create`
+### 1. Add the remote repository source at your local repositoy
+```
+$ git remote add upstream git@github.com:llsantana/week1_4.git
+```
 
-4. Run migrations on database container
-`docker-compose run website bundle exec rails db:migrate`
+### 2. Sync your repository with the original repository
+```
+$ git fetch upstream
+```
+
+### 3. Update your local repository
+```
+$ git checkout master
+$ git merge upstream/master
+```
+
+### 4. Work on it and send changes to your fork
+
+### 5. Do a pull request at your fork on GitHub
