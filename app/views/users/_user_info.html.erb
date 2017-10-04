@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="row">
-        <span class="name">Esperar colocar o nome</span><br />
-        <span class="username">@esperar_colocar_username</span><br />
+        <span class="name"><%= user.name %></span><br />
+        <span class="username">@<%= user.username %></span><br />
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </div>
     </div>
