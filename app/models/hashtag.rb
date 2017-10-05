@@ -3,7 +3,8 @@ class Hashtag < ApplicationRecord
   include PgSearch
   multisearchable against: [:content]
 
-  belongs_to :tweet
+  has_many :tweet_hashtags
+  has_many :tweets, through: :tweet_hashtags
 
   def card_content
     %W{ ##{self.content} }
