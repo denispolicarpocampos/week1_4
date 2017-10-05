@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rails-controller-testing', '~> 1.0.2'
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'shoulda-matchers', '~> 3.1.1'
