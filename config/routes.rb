@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root "home#index"
+  root "timelines#index"
 
   resources :users, only: :show do
     resources :follows, only: :create

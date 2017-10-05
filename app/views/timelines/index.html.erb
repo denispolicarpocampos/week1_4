@@ -1,0 +1,14 @@
+<%= render layout: "users/user_info", locals: { user: current_user } do %>
+  <h3>Tweets</h3>
+  <div class="card-content white lighten-4">
+
+    <div id="tweet_form">
+      <%= form_for @tweet, :url => posts_path, :method => :post do |f| %>
+        <%= f.label :tweet%>
+        <%= f.text_field :content, id: "content_tweet" %>
+        <%= f.submit "Tweet", :class => 'waves-effect deep-purple btn col s1 offset-s11'%>
+      <% end %>
+    </div>
+  </div>
+  <%= render @tweets %>
+<% end %>
