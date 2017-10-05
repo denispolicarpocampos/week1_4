@@ -2,7 +2,17 @@
   <div class="col xl12 l12 m12 s12 xs12">
     <div class="card">
       <div class="card-content">
-        <small><%= time_ago_in_words(tweet.created_at) %> ago</small>
+        <small>
+          <%= time_ago_in_words(tweet.created_at) %> ago
+          <% if tweet.user != current_user %>
+            - by <%= tweet.user.name %>
+            <% if tweet.user.username.present? %>
+              (@<%= tweet.user.username %>)
+            <% end %>
+          <% else %>
+            Your tweet
+          <% end %>
+        </small>
         <p><%= tweet.content %></p>
       </div>
     </div>
