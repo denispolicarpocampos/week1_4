@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:create, :edit, :update]
   resources :follows, only: :destroy
   resources :searches, only: :index
+  resources :timelines, only: :index
 
 end
