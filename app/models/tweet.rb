@@ -4,7 +4,8 @@ class Tweet < ApplicationRecord
   multisearchable against: [:content], using: [:trigram]
 
   belongs_to :user
-  has_many :hashtags
+  has_many :tweet_hashtags
+  has_many :hashtags, through: :tweet_hashtags
   has_many :likes
   validates :content, presence: true, length: { maximum: 140 }
   
