@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
 
   def card_content
-    %{
+    %W{
       @#{self.username}
       #{self.name}
       #{self.email}
