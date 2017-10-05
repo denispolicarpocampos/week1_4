@@ -29,7 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8'
   gem 'shoulda-matchers', '~> 3.1.1'
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 group :development do
