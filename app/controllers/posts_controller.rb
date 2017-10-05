@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     @post = current_user.tweets.new(post_params)
     unless @post.save
       flash.now[:error] = "Could not create tweet"
+      else
+      TweetHashtag.save_hashtags(@post)
     end
     redirect_back fallback_location: root_path
   end
