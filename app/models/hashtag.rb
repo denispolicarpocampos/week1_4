@@ -7,6 +7,6 @@ class Hashtag < ApplicationRecord
   has_many :tweets, through: :tweet_hashtags
 
   def card_content
-    "##{self.content}"
+    %W{ ##{self.content} }
   end
 end

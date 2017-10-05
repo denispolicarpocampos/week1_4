@@ -10,6 +10,6 @@ class Tweet < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
   
   def card_content
-    self.content
+    %W{ #{self.content} }
   end
 end
