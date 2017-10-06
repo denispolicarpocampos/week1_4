@@ -7,7 +7,6 @@ RSpec.describe FollowsController do
   let(:back) { user_path(user) }
   before { request.env['HTTP_REFERER'] = back }
  
-
   context "#POST create" do
     it "redirect_back to user :show page" do
       post :create, params: { user_id: user.id }
@@ -20,7 +19,6 @@ RSpec.describe FollowsController do
       }.to change(subject.current_user.connections, :count).by(1)
     end
   end
-
 
   context "#DELETE destroy" do
     

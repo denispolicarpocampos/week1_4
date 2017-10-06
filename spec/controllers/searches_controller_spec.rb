@@ -5,7 +5,7 @@ RSpec.describe SearchesController do
   login_user
   let!(:tweets) { create_list(:tweet, 3) }
   let!(:user) { create(:user, name: "James tweet") }
-  let!(:hashtag) { create(:hashtag, content: "My little tweet", tweet: tweets.first) }
+  let!(:hashtag) { create(:hashtag, content: "My little tweet") }
 
   context "GET #index" do 
     context "with :search_text" do
