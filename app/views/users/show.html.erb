@@ -1,4 +1,6 @@
 <%= render layout: "users/user_info", locals: { user: @user } do %>
-  <h3>Tweets</h3>
-  <%= render @user.tweets %>
+  <div class="user-tweets">
+    <h3>Tweets</h3>
+    <%= render @user.tweets %>
+  </div>
 <% end %>

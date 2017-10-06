@@ -11,6 +11,12 @@
   .follow-button {
     color: #673ab7;
   }
+
+  .col {
+    @media #{$medium-and-down} {
+      margin-bottom: 1em;
+    }
+  }
 }
 
 
@@ -32,6 +38,27 @@
     .username {
       color: #a79fb1;
       font-size: 1.1em;
+    }
+
+    @media #{$medium-and-down} {
+      .name {
+        font-size: 2.5em;
+      }
+
+      .username {
+        font-size: 2.5em;
+      }
+    }
+  }
+}
+
+
+.user-tweets {
+  @media #{$medium-and-down} {
+    margin-top: 28em;
+
+    h3 {
+      text-align: center;
     }
   }
 }
