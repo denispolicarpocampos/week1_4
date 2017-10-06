@@ -4,12 +4,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.tweets.new(post_params)
-    if @post.save
-      redirect_to @post
-    else
+    unless @post.save
       flash.now[:error] = "Could not create tweet"
-      render :new
+      else
+      TweetHashtag.save_hashtags(@post)
     end
+    redirect_back fallback_location: root_path
   end
 
   def edit

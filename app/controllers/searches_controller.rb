@@ -9,9 +9,7 @@ class SearchesController < ApplicationController
     end
   end
 
-
   private
-
 
   def search_result
     @results = PgSearch.multisearch(params[:search_text]).where.not("(searchable_type = 'User' AND searchable_id = ?)", current_user.id)
