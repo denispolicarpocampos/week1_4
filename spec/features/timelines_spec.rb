@@ -1,5 +1,4 @@
 require 'rails_helper'
-Capybara.default_max_wait_time = 5
 
 RSpec.feature "new tweet" do
 
@@ -14,8 +13,8 @@ RSpec.feature "new tweet" do
     end
   end
 
-  context "Tweet of followed" do
-    it "filling the fields and click submit" do
+  context "Tweet of followed on timeline" do
+    it "filling the fields with other user" do
       user = FactoryGirl.create(:user)
       user2 = FactoryGirl.create(:user)
       login_as(user, scope: :user)
