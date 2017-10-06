@@ -5,7 +5,7 @@
         <small>
           <%= time_ago_in_words(tweet.created_at) %> ago
           <% if tweet.user != current_user %>
-            - by <%= tweet.user.name %>
+            - by <%= link_to tweet.user.name, tweet.user %>
             <% if tweet.user.username.present? %>
               (@<%= tweet.user.username %>)
             <% end %>
