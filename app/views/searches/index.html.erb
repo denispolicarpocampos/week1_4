@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card-content">
             <h3 class="card-title"><%= result.searchable_type.constantize.model_name.human %></h3>
-            <p><%= result.searchable_type.constantize.find(result.searchable_id).card_content %></p>
+            <p><%= result.searchable_type.constantize.find(result.searchable_id).card_content.join("<br />").html_safe %></p>
           </div>
           <% if result.searchable_type == "User" %>
             <div class="card-action">
