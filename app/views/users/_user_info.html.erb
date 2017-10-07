@@ -1,5 +1,5 @@
 <div class="row user-top-bar">
-  <div class="col xl2 l2 m4 s12 xs12 center info-text"><%= user.tweets.count %> <strong>Tweet</strong></div>
+  <div class="col xl2 l2 m4 s12 xs12 center info-text"><%= user.tweets.count %> <strong>Tweets</strong></div>
   <div class="col xl2 l2 m4 s12 xs12 center info-text">
     <%= Connection.where(followee_id: user.id).count %> <strong>Followers</strong>
   </div>
@@ -20,12 +20,19 @@
       <% end %>
     </div>
   <% end %>
-
+  
   <div class="col xl2 l2 m6 s12 xs12 center">
-    <%= link_to timelines_path, class: "waves-effect waves-light btn blue", style: "margin-top: -0.2em;" do %>
-      <i class="material-icons right">view_headline</i>Timeline
-    <% end %>
+    <a class='dropdown-button btn' href='#' data-activates='dropdown-menu' style="margin-top: -0.2em">
+      &nbsp;&nbsp;Menu&nbsp;&nbsp;
+    </a>
+
+    <ul id='dropdown-menu' class='dropdown-content' style="margin-top: -0.2em">
+      <li><%= link_to "My Profile", edit_user_registration_path %></li>
+      <li><%= link_to "My Timeline", timelines_path %></li>
+      <li><%= link_to "Trend Topics", trend_topics_path %></li>
+    </ul>
   </div>
+
 </div>
 
 <div class="row">
@@ -39,6 +46,7 @@
       <div class="row">
         <span class="name"><%= user.name %></span><br/>
         <span class="username">@<%= user.username %></span><br/>
+        <%= link_to "My Profile", edit_user_registration_path, method: :delete if user == current_user %><br />
         <%= link_to "Logout", destroy_user_session_path, method: :delete if user == current_user %>
       </div>
     </div>
