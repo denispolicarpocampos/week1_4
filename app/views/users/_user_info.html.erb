@@ -46,7 +46,7 @@
       <div class="row">
         <span class="name"><%= user.name %></span><br/>
         <span class="username">@<%= user.username %></span><br/>
-        <%= link_to "My Profile", edit_user_registration_path, method: :delete if user == current_user %><br />
+        <%= link_to "My Profile", edit_user_registration_path if user == current_user %><br />
         <%= link_to "Logout", destroy_user_session_path, method: :delete if user == current_user %>
       </div>
     </div>
