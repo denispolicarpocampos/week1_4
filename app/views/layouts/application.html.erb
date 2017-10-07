@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Week14</title>
+    <title>Weekend Code Twitter</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
   <body>
     <nav>
       <div class="nav-wrapper top-bar row">
-        <a href="#" class="brand-logo center">Logo</a>
+        <a href="#" class="brand-logo center">Twitter</a>
         <div class="col xl3 l3 hide-on-med-and-down right">
           <%= form_tag searches_path, method: :get do %>
             <%= text_field_tag :search_text, "", placeholder: "Search" %>

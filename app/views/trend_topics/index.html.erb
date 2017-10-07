@@ -1,0 +1,16 @@
+<%= render layout: "users/user_info", locals: { user: current_user } do %>
+  <h3>Trending Topics</h3>
+
+  <% @trend_topics.each do |key, value| %>
+    <div class="row">
+      <div class="col xl12 l12 m12 s12 xs12">
+        <div class="card">
+          <div class="card-content" id="new_tweet">
+            <h3 class="card-title">#<%= key %></h3>
+            <p>#<%= key %> appears in <%= value %> tweets</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
