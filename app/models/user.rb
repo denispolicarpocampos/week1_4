@@ -36,6 +36,12 @@ class User < ApplicationRecord
     !deleted_at ? super : :deleted_account  
   end  
 
+  def after_database_authentication
+    if self.deleted_at?
+      self.reactivate_user
+    end
+  end
+
   def reactivate_user  
     update_attribute(:deleted_at, nil)
   end 
