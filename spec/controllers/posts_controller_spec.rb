@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PostsController do
-  
+
   login_user
   let(:back) { timelines_path }
   before { request.env['HTTP_REFERER'] = back }
@@ -21,4 +21,21 @@ RSpec.describe PostsController do
       }.to change(subject.current_user.tweets, :count).by(1)
     end
   end
+
+  context "POST #create with hashtag must be " do
+    let(:tweet_with_hashtag) { attributes_for(:tweet_with_hashtag) }
+
+    it "save new relationship whith the hashtag" do
+      expect {
+        post :create, params: { tweet: { content: tweet_with_hashtag[:content] } }
+      }.to change(TweetHashtag.all, :count).by(1)
+    end
+
+    it "save the hashtag" do
+      expect {
+        post :create, params: { tweet: { content: tweet_with_hashtag[:content] } }
+      }.to change(Hashtag.where(content: "hashtag"), :count).by(1)
+    end
+  end
+
 end
