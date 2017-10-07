@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :connections
   has_many :followees, through: :connections
+  validates :username, uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

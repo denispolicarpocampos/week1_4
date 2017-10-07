@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
     if params[:search_text].present?
       search_result
     else
-      flash[:alert] = "Please, enter a value to search"
+      flash[:alert] = "Please enter something to search"
       redirect_back fallback_location: root_path
     end
   end
