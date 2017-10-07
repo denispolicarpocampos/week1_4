@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :hashtag do
-    content "somehash"
+    sequence(:content) { |n| "somehash_#{n}" }
   end
 end  
