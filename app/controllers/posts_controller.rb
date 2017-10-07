@@ -25,6 +25,21 @@ class PostsController < ApplicationController
 
   end
 
+  
+  def like
+    @tweet = Tweet.find(params[:id]) 
+    @tweet.likes.create(user: current_user)
+    redirect_back fallback_location: root_path
+  end
+
+
+  def unlike
+    @tweet = Tweet.find(params[:id]) 
+    @tweet.likes.find_by(user: current_user).destroy
+    redirect_back fallback_location: root_path
+  end
+
+
   private
 
     def post_params

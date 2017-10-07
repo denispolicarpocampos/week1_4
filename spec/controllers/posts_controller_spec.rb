@@ -38,4 +38,30 @@ RSpec.describe PostsController do
     end
   end
 
+
+  context "POST #like" do
+    
+    let(:tweet) { create(:tweet) }
+
+    it "increase Tweet likes" do
+      expect {
+        post :like, params: { id: tweet.id }
+      }.to change(tweet.likes, :count).by(1)
+    end
+  end
+
+
+  context "DELETE #unlike" do
+
+    let(:tweet) { create(:tweet) }
+    let!(:like) { create(:like, tweet: tweet, user: subject.current_user) }
+
+    it "decrease Tweet likes" do
+      expect {
+        delete :unlike, params: { id: tweet.id }
+      }.to change(tweet.likes, :count).by(-1)
+    end
+  end
+
+
 end
