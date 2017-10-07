@@ -1,61 +1,79 @@
 <%= render layout: "users/user_info", locals: { user: current_user } do %>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="user-tweets">
+ 
+  <h3>Edit <%= resource_name.to_s.humanize %></h3>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= devise_error_messages! %>
+  <div class="col xl7 l7 m12 s12 xs12">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %>
-</div>
-<div class="field">
-  <%= f.label :name%><br />
-  <%= f.text_field :name%>
-</div>
-<div class="field">
-  <%= f.label :username%><br />
-  <%= f.text_field :username%>
-</div>
-<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-<% end %>
+    <% if resource.errors.present? || alert %>
+      <div class="form-errors red lighten-1">
+        <%= devise_error_messages! %>
+      </div>
+    <% end %>
 
-<div class="field">
-  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, autocomplete: "off" %>
-  <% if @minimum_password_length %>
-  <br />
-  <em><%= @minimum_password_length %> characters minimum</em>
-  <% end %>
-</div>
 
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-</div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :name%><br />
+      <%= f.text_field :name%>
+    </div>
+    <div class="field">
+      <%= f.label :username%><br />
+      <%= f.text_field :username%>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-<div class="field">
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "off" %>
-</div>
+    <div class="field">
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
 
-<div class="actions">
-  <%= f.submit "Update", class: "waves waves-effect btn blue" %>
-</div>
-<% end %>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-<h3>Cancel my account</h3>
+    <div class="field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
 
-<p>Unhappy? </p>
-
-<div class="row">
-  <div class="col xl4 l4 m6 s12 xs12">
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, 
-                                       method: :delete, class: "waves waves-effect btn red" %>
+    <div class="actions">
+      <%= f.submit "Update", class: "waves waves-effect btn blue" %>
+    </div>
+    <% end %>
   </div>
-  <div class="col xl3 l3 m6 s12 xs12">
-    <%= link_to "Back", :back, class: "waves waves-effect btn white", style: "color: grey" %>
+
+  <div class="col xl1 l1 hide-on-med-and-down"></div>
+
+  <div class="col xl4 l4 m12 s12 xs12">
+    <h4>Cancel my account</h4>
+
+    <p>Unhappy? </p>
+
+    <div class="row">
+      <div class="col xl12 l12 m6 s12 xs12">
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, 
+                                           method: :delete, class: "waves waves-effect btn red" %>
+      </div>
+      <br /><br />
+      <div class="col xl12 l12 m6 s12 xs12">
+        <%= link_to "Back", :back, class: "waves waves-effect btn white", style: "color: grey" %>
+      </div>
+    </div>
   </div>
+
+</div>
 <% end %>
 

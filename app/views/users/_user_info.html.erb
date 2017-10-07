@@ -55,8 +55,17 @@
   <div class="col xl3 l3 m12 s12 xs12"></div>
 
   <div class="col xl9 l9 m12 s12 xs12">
-    <%= alert %>
-    <%= notice %>
+    <% if alert %>
+      <div class="form-errors red lighten-1">
+        <%= alert  %>
+      </div>
+    <% end %>
+
+    <% if notice %>
+      <div class="form-errors green lighten-1">
+        <%= notice %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 </div>
