@@ -3,11 +3,12 @@ class User < ApplicationRecord
   include PgSearch
   multisearchable against: [:name, :username, :email]
 
+  validates :name, presence: true
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
   has_many :likes_given, :class_name => 'Like'
   has_many :tweets
   has_many :connections
   has_many :followees, through: :connections
-  validates :username, uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
