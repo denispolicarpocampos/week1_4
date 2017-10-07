@@ -8,9 +8,30 @@
           <% if tweet.user.username.present? %>
             (@<%= tweet.user.username %>)
           <% end %>
-        </small>
-        <p><%= tweet.content %></p>
-      </div>
+
+          <% if tweet.retweeted_from.present? %>
+            - Retweeted from <%= link_to tweet.retweeted_from.user.name %>
+              <% if tweet.retweeted_from.user.username.present? %>
+                (@<%= tweet.retweeted_from.user.username %>)
+              <% end %>
+            <% end %>
+          </small>
+          <p><%= tweet.content %></p>
+        </div>
+        <div class="card-action">
+          <% unless tweet.user == current_user %>
+            <% if tweet.likes.where(user: current_user).any? %>
+              <%= link_to "Unlike (#{tweet.likes.count})", unlike_post_path(tweet), method: :delete, class: "unlike_post" %>
+            <% else %>
+              <%= link_to "Like (#{tweet.likes.count})", like_post_path(tweet), method: :post, class: "like_tweet" %>
+            <% end %>
+
+            <% unless current_user.tweets.where(retweeted_from: tweet).any? %>
+              <%= link_to "Retweet (#{Tweet.where(retweeted_from: tweet).count})", retweet_post_path(tweet), 
+                            method: :post, data: { confirm: "You are about to Retweet this post. I can't be undone" } %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
