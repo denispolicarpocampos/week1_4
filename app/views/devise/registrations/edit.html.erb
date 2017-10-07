@@ -60,13 +60,11 @@
   <div class="col xl1 l1 hide-on-med-and-down"></div>
 
   <div class="col xl4 l4 m12 s12 xs12">
-    <h4>Cancel my account</h4>
-
-    <p>Unhappy? </p>
+    <h4>Unhappy with our Services?</h4>
 
     <div class="row">
       <div class="col xl12 l12 m6 s12 xs12">
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, 
+        <%= button_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, 
                                            method: :delete, class: "waves waves-effect btn red" %>
       </div>
       <br /><br />
