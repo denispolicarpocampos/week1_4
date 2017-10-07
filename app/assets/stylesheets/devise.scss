@@ -68,3 +68,27 @@
     color: #f00;
   }
 }
+
+
+.edit_user {
+  .form-errors {
+    margin-bottom: 10px;
+    padding: 15px;
+
+    h2 {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      li:before {
+        content: "- ";
+        left: 0;
+      }
+
+    }
+  }
+}

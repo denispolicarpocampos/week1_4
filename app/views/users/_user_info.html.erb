@@ -29,7 +29,7 @@
     <ul id='dropdown-menu' class='dropdown-content' style="margin-top: -0.2em">
       <li><%= link_to "My Profile", edit_user_registration_path %></li>
       <li><%= link_to "My Timeline", timelines_path %></li>
-      <li><%= link_to "Trend Topics", trend_topics_path %></li>
+      <li><%= link_to "Trending Topics", trend_topics_path %></li>
     </ul>
   </div>
 
@@ -46,7 +46,7 @@
       <div class="row">
         <span class="name"><%= user.name %></span><br/>
         <span class="username">@<%= user.username %></span><br/>
-        <%= link_to "My Profile", edit_user_registration_path, method: :delete if user == current_user %><br />
+        <%= link_to "My Profile", edit_user_registration_path if user == current_user %><br />
         <%= link_to "Logout", destroy_user_session_path, method: :delete if user == current_user %>
       </div>
     </div>
@@ -55,8 +55,17 @@
   <div class="col xl3 l3 m12 s12 xs12"></div>
 
   <div class="col xl9 l9 m12 s12 xs12">
-    <%= alert %>
-    <%= notice %>
+    <% if alert %>
+      <div class="form-errors red lighten-1">
+        <%= alert  %>
+      </div>
+    <% end %>
+
+    <% if notice %>
+      <div class="form-errors green lighten-1">
+        <%= notice %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 </div>
