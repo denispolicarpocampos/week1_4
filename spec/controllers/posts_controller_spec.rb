@@ -64,4 +64,15 @@ RSpec.describe PostsController do
   end
 
 
+  context "POST #retweet" do
+    let(:tweet) { create(:tweet) }
+
+    it "increses retweets count" do
+      expect {
+        post :retweet, params: { id: tweet.id }
+      }.to change(Tweet.where(retweeted_from: tweet), :count).by(1)
+    end
+  end
+
+
 end

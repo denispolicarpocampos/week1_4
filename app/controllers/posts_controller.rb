@@ -40,6 +40,13 @@ class PostsController < ApplicationController
   end
 
 
+  def retweet
+    @tweet = Tweet.find(params[:id])
+    @retweet = current_user.tweets.create(content: @tweet.content, retweeted_from_id: @tweet.id)
+    redirect_back fallback_location: root_path
+  end
+
+
   private
 
     def post_params
