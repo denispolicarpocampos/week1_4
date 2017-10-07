@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :follows, only: :destroy
   resources :searches, only: :index
   resources :timelines, only: :index
+  resources :trend_topics, only: :index
 
 end
