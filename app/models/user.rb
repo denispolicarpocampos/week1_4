@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   include PgSearch
   multisearchable against: [:name, :username, :email]
-	
+
   has_many :likes_given, :class_name => 'Like'
   has_many :tweets
   has_many :connections
@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
   def card_content
     %W{
@@ -33,4 +33,9 @@ class User < ApplicationRecord
   def inactive_message   
     !deleted_at ? super : :deleted_account  
   end  
+
+  def reactivate_user  
+    update_attribute(:deleted_at, nil)
+  end 
+
 end
