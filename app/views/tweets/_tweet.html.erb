@@ -11,6 +11,15 @@
         </small>
         <p><%= tweet.content %></p>
       </div>
+      <div class="card-action">
+        <% unless tweet.user == current_user %>
+          <% if tweet.likes.where(user: current_user).any? %>
+            <%= link_to "Unlike (#{tweet.likes.count})", unlike_post_path(tweet), method: :delete, class: "unlike_post" %>
+          <% else %>
+            <%= link_to "Like (#{tweet.likes.count})", like_post_path(tweet), method: :post, class: "like_tweet" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
