@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "like actions" do
+feature "post actions" do
     
   given(:user) { create(:user) }
   given(:followed_user) { create(:user) }
@@ -22,5 +22,15 @@ feature "like actions" do
     expect {
       click_on "Unlike (#{tweet.likes.count})"
     }.to change(tweet.likes, :count).by(-1)
+  end
+
+
+  it "retweet one" do
+    visit timelines_path
+    expect(page).to have_content("Tweets")
+
+    expect {
+      click_on "Retweet (#{Tweet.where(retweeted_from: tweet).count})"
+    }.to change(Tweet.where(retweeted_from: tweet), :count).by(1)
   end
 end
