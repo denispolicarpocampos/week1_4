@@ -4,13 +4,9 @@
       <div class="card-content" id="new_tweet">
         <small>
           <%= time_ago_in_words(tweet.created_at) %> ago
-          <% if tweet.user != current_user %>
-            - by <%= link_to tweet.user.name, tweet.user %>
-            <% if tweet.user.username.present? %>
-              (@<%= tweet.user.username %>)
-            <% end %>
-          <% else %>
-            Your tweet
+          - by <%= link_to tweet.user.name, tweet.user %>
+          <% if tweet.user.username.present? %>
+            (@<%= tweet.user.username %>)
           <% end %>
         </small>
         <p><%= tweet.content %></p>

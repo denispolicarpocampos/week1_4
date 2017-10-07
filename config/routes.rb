@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'user/registrations' }
   root "timelines#index"
 
   resources :users, only: :show do
@@ -12,5 +11,6 @@ Rails.application.routes.draw do
   resources :follows, only: :destroy
   resources :searches, only: :index
   resources :timelines, only: :index
+  resources :trend_topics, only: :index
 
 end
